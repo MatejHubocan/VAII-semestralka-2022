@@ -4,7 +4,8 @@ body {
     background-image: url("https://th.bing.com/th/id/R.d5fa785e50cdcb60f87c1257f8afd7f6?rik=tUbG49tiKnMX7g&pid=ImgRaw&r=0");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center, center;
+    background-position: top, left;
+    background-attachment: fixed;
 }
 
 .menu {
@@ -75,6 +76,8 @@ body {
     border: 2px solid black;
     padding: 5px;
     color: #a1c526;
+    background: rgba(68, 79, 65, 0.7);
+
 }
 
 .loginWindow {
