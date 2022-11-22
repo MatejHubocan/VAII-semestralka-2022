@@ -1,10 +1,10 @@
 <?php
 session_start();
 $servername = "localhost";
-$dbUsername = "root";
-$dbPassword = "dtb456";
-$dbName = "dbsemvaii";
-$conn = mysqli_connect($servername, $dbUsername, $dbPassword, $dbName);
+$username = "db_user";
+$password = "db_user_pass";
+$dbname = "dbtable";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if ( mysqli_connect_errno() ) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
@@ -13,7 +13,8 @@ if ( mysqli_connect_errno() ) {
 if ( !isset($_POST['username'], $_POST['password']) ) {
     exit('Please fill both the username and password fields!');
 }
-if ($stmt = $conn->prepare('SELECT userID, userPassword FROM users WHERE userName = ?')) {
+
+if ($stmt = $conn->prepare('SELECT id, heslo FROM users WHERE meno = ?')) {
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();
     $stmt->store_result();
