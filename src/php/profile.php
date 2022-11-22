@@ -49,9 +49,12 @@ $stmt->close();
             <input class="button" type="submit" value="EDIT">
         </form>
     </div>
-    <button class="button" onclick="location.href='deleteProfile.php'" >
+    <button class="button" onclick="location.href='deleteProfile.php';document.getElementById('animacia').style.display='block';" >
         DELETE ACCOUNT
     </button>
+    <div id="animacia" style="display:none">
+        tu budem animovat
+    </div>
 </div>
 </body>
 </html>

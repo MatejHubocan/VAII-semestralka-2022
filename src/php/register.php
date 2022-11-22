@@ -11,12 +11,12 @@
     <form action="register.php" method="post">
         <p>
             <label for="name">user name:</label>
-            <input type="text" name="username" id="name" required maxlength="20">
+            <input type="text" name="username" id="name" required minlength="1" maxlength="20">
         </p>
 
         <p>
             <label for="pass">user password:</label>
-            <input type="text" name="password" id="pass" required minlength="4">
+            <input type="text" name="password" id="pass" required minlength="4" maxlength="20">
         </p>
 
         <input type="submit" name="submit" value="Submit">
@@ -32,10 +32,20 @@ if (isset($_POST['submit'])) {
     $name =  $_REQUEST['username'];
     $pass = $_REQUEST['password'];
 
+    if(strlen($name) < 20){
+        echo "Meno bolo prilis dlhe (viac ako 20 znakov).";
+        exit();
+    }
+
     if(strlen($pass) < 4){
         echo "Heslo bolo prilis kratke (menej ako 4 znaky).";
         exit();
     }
+    if(strlen($pass) > 20){
+        echo "Heslo bolo prilis dlhe (viac ako 20 znakov).";
+        exit();
+    }
+
 
     $servername = "localhost";
     $username = "db_user";
